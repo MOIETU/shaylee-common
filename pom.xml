@@ -15,6 +15,8 @@
 
     <modules>
         <module>shaylee-dynamic-datasource</module>
+        <module>shaylee-distributed-lock-lettuce</module>
+        <module>shaylee-distributed-lock-jedis</module>
     </modules>
 
     <properties>
@@ -27,6 +29,7 @@
         <commons.lang.version>3.7</commons.lang.version>
         <druid.version>1.1.10</druid.version>
         <mysql.version>8.0.12</mysql.version>
+        <jedis.version>2.9.0</jedis.version>
     </properties>
 
     <dependencies>
