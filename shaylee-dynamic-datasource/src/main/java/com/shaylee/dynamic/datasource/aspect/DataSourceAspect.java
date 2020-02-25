@@ -1,4 +1,4 @@
-package com.shaylee.dynamic.datasource.aspectj;
+package com.shaylee.dynamic.datasource.aspect;
 
 import com.shaylee.dynamic.datasource.annotation.DataSource;
 import com.shaylee.dynamic.datasource.enums.DataSourceType;
