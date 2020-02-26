@@ -73,11 +73,10 @@ public class DistributedLockAspect {
             logger.info("========={}========> get lock fail , key:{}",
                     this.getClass().getSimpleName(), key);
             //TODO 添加自定义异常
-            throw new RuntimeException("get lock fail");
+            throw new RuntimeException("获取锁失败");
         }
         logger.info("========={}========> get lock success, key:{}",
                 this.getClass().getSimpleName(), key);
-
         try {
             // 执行目标方法
             return joinPoint.proceed();
@@ -96,9 +95,7 @@ public class DistributedLockAspect {
      * @param lock   注解
      * @param method 注解标记的方法
      * @param args   方法上的参数
-     * @return
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
+     * @return 分布式锁的键
      */
     private String buildLockKey(DistributedLock lock, Method method, Object[] args) throws NoSuchFieldException, IllegalAccessException {
         StringBuilder key = new StringBuilder(KEY_SEPARATOR + KEY_PREFIX + lock.key());
@@ -109,21 +106,20 @@ public class DistributedLockAspect {
         for (int i = 0; i < parameterAnnotations.length; i++) {
             // 循环该参数全部注解
             for (Annotation annotation : parameterAnnotations[i]) {
-                // 注解不是 @LockKeyParam
+                // 注解不是 @LockParam
                 if (!annotation.annotationType().equals(LockParam.class)) {
                     continue;
                 }
-
                 // 获取所有fields
                 String[] fields = ((LockParam) annotation).fields();
-                if (Objects.isNull(fields) || fields.length == 0) {
+                if (fields.length == 0) {
                     // 普通数据类型直接拼接
-                    if (Objects.isNull(args[i]) || args[i].equals(null)) {
+                    if (Objects.isNull(args[i]) || args[i] == null) {
                         throw new RuntimeException("动态参数不能为null");
                     }
                     key.append(KEY_SEPARATOR).append(args[i]);
                 } else {
-                    // @LockKeyParam的fields值不为null，所以当前参数应该是对象类型
+                    // @LockParam的fields值不为null，所以当前参数应该是对象类型
                     for (String field : fields) {
                         Class<?> clazz = args[i].getClass();
                         //获取本类及父类私有变量字段

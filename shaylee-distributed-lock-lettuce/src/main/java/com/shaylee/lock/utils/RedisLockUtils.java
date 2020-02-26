@@ -16,6 +16,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Title: Redis实现分布式锁关键指令封装
+ * Project: shaylee-common
+ *
+ * @author Adrian
+ * @version 1.0
+ * @date 2020-2-25
+ */
 @Component
 public class RedisLockUtils {
     private static final Logger logger = LoggerFactory.getLogger(RedisLockUtils.class);
@@ -27,7 +35,6 @@ public class RedisLockUtils {
      * 通过 Lua 脚本来达到释放锁的原子操作
      */
     public static final String UNLOCK_LUA = "if redis.call(\"get\",KEYS[1]) == ARGV[1] then return redis.call(\"del\",KEYS[1]) else return 0 end";
-
 
     /**
      * SetNx + Expire

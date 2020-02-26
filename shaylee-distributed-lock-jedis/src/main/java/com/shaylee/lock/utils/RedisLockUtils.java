@@ -43,7 +43,7 @@ public class RedisLockUtils {
     /**
      * 以秒为单位设置key的过期时间，等效于EXPIRE key seconds
      */
-    private static String SET_WITH_EXPIRE_TIME_E = "EX";
+    private static final String SET_WITH_EXPIRE_TIME_E = "EX";
 
     private static final String LOCK_SUCCESS = "OK";
 
