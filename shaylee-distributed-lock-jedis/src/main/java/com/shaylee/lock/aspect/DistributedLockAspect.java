@@ -48,7 +48,7 @@ public class DistributedLockAspect {
 
     @Pointcut(value = "@annotation(com.shaylee.lock.annotation.DistributedLock)")
     public void lockPointcut() {
-        
+
     }
 
     @Around(value = "lockPointcut()")

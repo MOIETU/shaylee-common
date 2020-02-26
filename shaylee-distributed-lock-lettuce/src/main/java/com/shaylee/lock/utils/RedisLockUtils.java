@@ -39,8 +39,8 @@ public class RedisLockUtils {
     /**
      * SetNx + Expire
      *
-     * @param key key值
-     * @param value value值
+     * @param key         key值
+     * @param value       value值
      * @param expiredTime 过期时间（秒）
      * @return 设置结果
      */
@@ -84,14 +84,14 @@ public class RedisLockUtils {
     /**
      * 根据Key-Value删除
      *
-     * @param key 键
+     * @param key   键
      * @param value 值
      * @return 删除结果
      */
     @SuppressWarnings("unchecked")
     public Boolean delByKV(String key, String value) {
         try {
-            if(value == null){
+            if (value == null) {
                 return false;
             }
 
@@ -103,7 +103,7 @@ public class RedisLockUtils {
             Long result = redisTemplate.execute((RedisCallback<Long>) connection -> {
                 Object nativeConnection = connection.getNativeConnection();
                 if (nativeConnection instanceof RedisScriptingAsyncCommands) {
-                    RedisScriptingAsyncCommands<Object,byte[]> scriptingAsyncCommands = (RedisScriptingAsyncCommands<Object,byte[]>) nativeConnection;
+                    RedisScriptingAsyncCommands<Object, byte[]> scriptingAsyncCommands = (RedisScriptingAsyncCommands<Object, byte[]>) nativeConnection;
                     RedisFuture future = scriptingAsyncCommands.eval(UNLOCK_LUA, ScriptOutputType.INTEGER, keyByte, valueByte);
                     try {
                         Object o = future.get();
