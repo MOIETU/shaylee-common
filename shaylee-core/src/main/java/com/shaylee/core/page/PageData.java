@@ -6,14 +6,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 分页工具类
+ * Title: 分页结构
+ * Project: shaylee-common
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Adrian
+ * @version 1.0
+ * @date 2020-2-26
  */
 @Data
 public class PageData<T> implements Serializable {
     private static final long serialVersionUID = 5745665179601318769L;
-
     /**
      * 当前记录起始索引
      */
@@ -23,22 +25,15 @@ public class PageData<T> implements Serializable {
      */
     private Integer pageSize;
     /**
-     * 记录总数
+     * 总页数
      */
-    private int total;
+    private Long pageCount;
     /**
-     * 记录数据
+     * 总记录数
+     */
+    private Long total;
+    /**
+     * 结果集
      */
     private List<T> list;
-
-    /**
-     * 分页
-     *
-     * @param list  列表数据
-     * @param total 总记录数
-     */
-    public PageData(List<T> list, long total) {
-        this.list = list;
-        this.total = (int) total;
-    }
 }
