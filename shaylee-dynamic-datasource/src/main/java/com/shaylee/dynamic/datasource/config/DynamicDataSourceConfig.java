@@ -33,7 +33,7 @@ public class DynamicDataSourceConfig {
     public DynamicDataSource dynamicDataSource(DataSourceProperties dataSourceProperties) {
         Map<String, DruidDataSource> druidDataSourceMap = this.buildDruidDataSourceMap(dataSourceProperties);
         // 默认数据源
-        DruidDataSource defaultDataSource = druidDataSourceMap.get(DataSourceProperties.MASTER_PREFIX + dataSourceProperties.getDefaultDatasource());
+        DruidDataSource defaultDataSource = druidDataSourceMap.get(dataSourceProperties.getDefaultDatasource());
         // 目标数据源
         Map<Object, Object> targetDataSource = this.getDynamicDataSource(druidDataSourceMap);
         return new DynamicDataSource(defaultDataSource, targetDataSource);
