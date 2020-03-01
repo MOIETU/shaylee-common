@@ -5,6 +5,13 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * Title: 缓存服务类
+ * Project: shaylee-common
+ *
+ * @author Adrian
+ * @date 2020-03-01
+ */
 @Component
 public interface CacheService {
 
