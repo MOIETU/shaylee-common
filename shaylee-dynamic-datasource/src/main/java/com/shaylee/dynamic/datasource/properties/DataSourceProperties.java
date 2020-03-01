@@ -10,8 +10,7 @@ import java.util.Map;
  * Project: shaylee-common
  *
  * @author Adrian
- * @version 1.0
- * @date 2020-2-20
+ * @date 2020-02-20
  */
 @Data
 public class DataSourceProperties {

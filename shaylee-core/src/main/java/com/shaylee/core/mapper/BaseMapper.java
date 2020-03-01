@@ -5,8 +5,7 @@ package com.shaylee.core.mapper;
  * Project: shaylee-common
  *
  * @author Adrian
- * @version 1.0
- * @date 2020-2-26
+ * @date 2020-02-26
  */
 public interface BaseMapper {
 }

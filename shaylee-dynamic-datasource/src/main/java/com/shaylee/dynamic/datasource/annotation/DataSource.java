@@ -9,8 +9,7 @@ import java.lang.annotation.*;
  * Project: shaylee-common
  *
  * @author Adrian
- * @version 1.0
- * @date 2020-2-20
+ * @date 2020-02-20
  */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

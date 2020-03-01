@@ -19,6 +19,7 @@
         <module>shaylee-dynamic-datasource</module>
         <module>shaylee-distributed-lock-lettuce</module>
         <module>shaylee-distributed-lock-jedis</module>
+        <module>shaylee-redis</module>
     </modules>
 
     <properties>

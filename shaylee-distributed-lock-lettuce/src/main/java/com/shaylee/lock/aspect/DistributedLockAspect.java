@@ -30,8 +30,7 @@ import java.util.stream.Collectors;
  * Project: shaylee-common
  *
  * @author Adrian
- * @version 1.0
- * @date 2020-2-25
+ * @date 2020-02-25
  */
 @Aspect
 @Component
