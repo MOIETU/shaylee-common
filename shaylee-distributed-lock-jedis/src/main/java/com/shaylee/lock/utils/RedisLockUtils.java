@@ -12,7 +12,6 @@ import redis.clients.jedis.JedisCommands;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Title: Redis实现分布式锁关键指令封装
