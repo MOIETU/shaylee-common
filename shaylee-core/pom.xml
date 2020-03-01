@@ -6,8 +6,8 @@
         <artifactId>shaylee-common</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>shaylee-com.shaylee.core</artifactId>
-    <name>shaylee-com.shaylee.core</name>
+    <artifactId>shaylee-core</artifactId>
+    <name>shaylee-core</name>
     <description>组件包核心</description>
 
     <dependencies>
