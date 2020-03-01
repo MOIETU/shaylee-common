@@ -1,7 +1,5 @@
 package com.shaylee.redis.constant;
 
-import com.shaylee.core.constant.BaseConstant;
-
 /**
  * Title: 缓存常量类
  * Project: shaylee-common
@@ -9,7 +7,7 @@ import com.shaylee.core.constant.BaseConstant;
  * @author Adrian
  * @date 2020-03-01
  */
-public interface CacheConstant extends BaseConstant {
+public interface CacheConstant {
     /**  默认过期时长为24小时，单位：秒 */
     long DEFAULT_EXPIRE = 60 * 60 * 24L;
     /**  过期时长为1小时，单位：秒 */

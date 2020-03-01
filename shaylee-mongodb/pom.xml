@@ -6,19 +6,19 @@
         <artifactId>shaylee-common</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>shaylee-redis</artifactId>
-    <name>shaylee-redis</name>
-    <description>Redis封装</description>
+    <artifactId>shaylee-mongodb</artifactId>
+    <name>shaylee-mongodb</name>
+    <description>Mongodb封装</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-        <!--redis依赖配置-->
+        <!--mongodb依赖配置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 </project>
