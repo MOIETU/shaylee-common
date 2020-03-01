@@ -8,15 +8,15 @@
     <packaging>pom</packaging>
 
     <!-- 依赖springboot父级支持 -->
-    <parent>
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.5.RELEASE</version>
-    </parent>
+    </parent>-->
 
     <modules>
         <module>shaylee-core</module>
-        <module>shaylee-dynamic-datasource</module>
+        <module>shaylee-datasource</module>
         <module>shaylee-distributed-lock-lettuce</module>
         <module>shaylee-distributed-lock-jedis</module>
         <module>shaylee-redis</module>
@@ -25,18 +25,27 @@
     </modules>
 
     <properties>
+        <java.version>1.8</java.version>
+        <project.version>1.0.0</project.version>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-platform.version>Cairo-SR8</spring-platform.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <junit.version>4.12</junit.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <mysql.connector.version>8.0.12</mysql.connector.version>
+        <druid.version>1.1.10</druid.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <jedis.version>2.9.0</jedis.version>
         <guava.version>20.0</guava.version>
         <lombok.version>1.18.4</lombok.version>
         <commons.lang.version>3.7</commons.lang.version>
-        <druid.version>1.1.10</druid.version>
-        <mysql.version>8.0.12</mysql.version>
-        <jedis.version>2.9.0</jedis.version>
         <commons-io.version>2.5</commons-io.version>
         <jackson.version>2.10.2</jackson.version>
+        <junit.version>4.12</junit.version>
+        <security.oauth.version>2.3.6.RELEASE</security.oauth.version>
     </properties>
 
     <dependencies>
@@ -82,16 +91,79 @@
             <artifactId>jackson-module-jaxb-annotations</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <!--mybatis plus extension,包含了mybatis plus core-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring,SpringBoot,SpringCloud依赖版本统一 -->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>${spring-platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 稳定版本，替代spring security bom内置 -->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security.oauth.version}</version>
+            </dependency>
+            <!-- web 模块 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <!--排除tomcat依赖-->
+                    <exclusion>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Druid连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-
+            <!-- Mysql连接驱动版本 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -124,5 +196,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>

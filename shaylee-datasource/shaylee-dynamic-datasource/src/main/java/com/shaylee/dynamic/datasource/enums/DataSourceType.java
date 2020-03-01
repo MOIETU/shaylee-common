@@ -11,11 +11,11 @@ public enum DataSourceType {
     /**
      * API主库
      */
-    MASTER_API("master.api"),
+    MASTER_API("master.shaylee"),
     /**
      * API从库
      */
-    SLAVE_API("slave.api");
+    SLAVE_API("slave.shaylee");
 
     private final String name;
 

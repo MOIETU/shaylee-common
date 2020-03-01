@@ -1,6 +1,5 @@
 package com.shaylee.amqp.service.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shaylee.amqp.service.AmqpService;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -20,8 +19,6 @@ public class AmqpServiceImpl implements AmqpService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Override
     public AmqpTemplate getAmqpTemplate() {
@@ -29,17 +26,17 @@ public class AmqpServiceImpl implements AmqpService {
     }
 
     @Override
-    public void sendMessage(String queueName, Object message) throws JsonProcessingException {
-        rabbitTemplate.convertAndSend(queueName, objectMapper.writeValueAsString(message));
+    public void sendMessage(String queueName, Object message) {
+        rabbitTemplate.convertAndSend(queueName, message);
     }
 
     @Override
-    public void sendMessage(String exchange, String routingKey, Object message) throws JsonProcessingException {
-        rabbitTemplate.convertAndSend(exchange, routingKey, objectMapper.writeValueAsString(message));
+    public void sendMessage(String exchange, String routingKey, Object message) {
+        rabbitTemplate.convertAndSend(exchange, routingKey, message);
     }
 
     @Override
-    public void sendMessageToExchange(String exchange, Object message) throws JsonProcessingException {
-        rabbitTemplate.convertAndSend(exchange, null, objectMapper.writeValueAsString(message));
+    public void sendMessageToExchange(String exchange, Object message) {
+        rabbitTemplate.convertAndSend(exchange, null, message);
     }
 }
