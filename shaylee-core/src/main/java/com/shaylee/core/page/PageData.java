@@ -26,11 +26,11 @@ public class PageData<T> implements Serializable {
     /**
      * 总页数
      */
-    private Long pageCount;
+    private Long totalPage;
     /**
      * 总记录数
      */
-    private Long total;
+    private Long totalItem;
     /**
      * 结果集
      */
