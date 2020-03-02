@@ -13,6 +13,9 @@
     <description>数据源聚合模块</description>
 
     <modules>
+        <module>shaylee-druid-datasource</module>
         <module>shaylee-dynamic-datasource</module>
+        <module>shaylee-orm-mybatisplus</module>
+        <module>shaylee-orm-tkmybatis</module>
     </modules>
 </project>
