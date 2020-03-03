@@ -33,7 +33,7 @@ public class DruidMonitorConfig {
     @Scope("prototype")
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut pointcut = new JdkRegexpMethodPointcut();
-        pointcut.setPattern("com.vdadmin.*.dao.*");
+        pointcut.setPattern("com.shaylee.*.dao.*");
         return pointcut;
     }
 
