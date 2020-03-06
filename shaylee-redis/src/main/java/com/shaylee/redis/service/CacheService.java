@@ -1,7 +1,5 @@
 package com.shaylee.redis.service;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 import java.util.Map;
 
@@ -12,7 +10,6 @@ import java.util.Map;
  * @author Adrian
  * @date 2020-03-01
  */
-@Component
 public interface CacheService {
 
     void set(String key, Object value, long expire);

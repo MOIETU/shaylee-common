@@ -22,6 +22,7 @@
         <module>shaylee-redis</module>
         <module>shaylee-amqp</module>
         <module>shaylee-mongodb</module>
+        <module>shaylee-security</module>
     </modules>
 
     <properties>
@@ -47,6 +48,9 @@
         <junit.version>4.12</junit.version>
         <mapper.version>2.1.5</mapper.version>
         <pagehelper.version>1.2.13</pagehelper.version>
+        <java-jwt.version>3.4.0</java-jwt.version>
+        <shiro.version>1.4.0</shiro.version>
+        <bitwalker.version>1.21</bitwalker.version>
         <security.oauth.version>2.3.6.RELEASE</security.oauth.version>
     </properties>
 
@@ -193,6 +197,32 @@
                         <artifactId>mybatis-plus-generator</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <!-- jwt -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+
+            <!-- shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <!-- 客户端解析工具 -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

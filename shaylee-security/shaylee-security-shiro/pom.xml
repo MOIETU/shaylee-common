@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.shaylee</groupId>
+        <artifactId>shaylee-datasource</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>shaylee-security-shiro</artifactId>
+    <name>shaylee-security-shiro</name>
+    <description>security-shiro</description>
+
+    <dependencies>
+        <!-- core包 -->
+        <dependency>
+            <groupId>com.shaylee</groupId>
+            <artifactId>shaylee-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- redis包 -->
+        <dependency>
+            <groupId>com.shaylee</groupId>
+            <artifactId>shaylee-redis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- mq包 -->
+        <dependency>
+            <groupId>com.shaylee</groupId>
+            <artifactId>shaylee-amqp</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- mybatis -->
+        <dependency>
+            <groupId>com.shaylee</groupId>
+            <artifactId>shaylee-orm-tkmybatis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+        </dependency>
+
+        <!-- Shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
+
+        <!-- web模块 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- undertow容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+    </dependencies>
+</project>
