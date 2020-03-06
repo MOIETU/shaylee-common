@@ -60,6 +60,7 @@ public class DruidMonitorConfig {
             @Override
             public void init(javax.servlet.FilterConfig filterConfig) {
             }
+
             @Override
             public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
                     throws IOException, ServletException {
@@ -73,6 +74,7 @@ public class DruidMonitorConfig {
                 text = text.replaceAll("powered.*?shrek.wang</a>", "");
                 response.getWriter().write(text);
             }
+
             @Override
             public void destroy() {
             }

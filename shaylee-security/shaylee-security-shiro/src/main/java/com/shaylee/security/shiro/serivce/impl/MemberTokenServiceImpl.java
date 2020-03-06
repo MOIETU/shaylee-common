@@ -68,7 +68,7 @@ public class MemberTokenServiceImpl implements MemberTokenService {
             return false;
         }
         String memberTokenKey = MessageFormat.format(SecurityConstant.REDIS_KEY_JWT_TEMP, memberNo);
-        if(redisCache.get(memberTokenKey) != null) {
+        if (redisCache.get(memberTokenKey) != null) {
             return false;
         }
         // token信息写入缓存,设置失效时间20秒

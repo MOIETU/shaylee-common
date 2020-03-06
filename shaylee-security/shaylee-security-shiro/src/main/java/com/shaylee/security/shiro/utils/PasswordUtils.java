@@ -18,6 +18,7 @@ public class PasswordUtils {
 
     /**
      * 加密
+     *
      * @param memberLogin 会员登录实体(会员号+明文密码+盐)
      * @return 返回加密字符串 BCrypt(会员号+明文密码+盐)
      */
@@ -33,7 +34,8 @@ public class PasswordUtils {
 
     /**
      * 比较密码是否相等
-     * @param password 用户输入密码
+     *
+     * @param password       用户输入密码
      * @param memberSecurity 会员登录实体(memberNo,salt,password)
      * @return true：成功 false：失败
      */

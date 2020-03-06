@@ -1,6 +1,5 @@
 package com.shaylee.amqp.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shaylee.amqp.service.AmqpService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

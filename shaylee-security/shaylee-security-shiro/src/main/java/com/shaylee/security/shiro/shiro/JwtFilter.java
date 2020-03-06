@@ -180,7 +180,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         // 计算token失效时间
         if (LocalDateTime.now().getSecond() - SecurityConstant.JWT_EXPIRE_TIME_SHORT > expireDate.getTime() - SecurityConstant.JWT_EXPIRE_TIME) {
             // 当前时间 - 旧token生成时间 > 5分钟。将旧token存到临时token
-            if(memberTokenService.saveTokenToTemp(token)) {
+            if (memberTokenService.saveTokenToTemp(token)) {
                 // 生成新token
                 SignInfo signInfo = memberTokenService.refreshToken(memberSecurity);
                 // 异步更新会员最后活跃时间

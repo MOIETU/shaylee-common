@@ -15,17 +15,17 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2020-03-06
  */
 public class UserAgentUtils {
-	private static Logger logger = LoggerFactory.getLogger(UserAgentUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(UserAgentUtils.class);
 
-	/**
-	 * 获取IP地址
-	 */
-	public static String getIpAddr(HttpServletRequest request) {
-	    String unknown = "unknown";
+    /**
+     * 获取IP地址
+     */
+    public static String getIpAddr(HttpServletRequest request) {
+        String unknown = "unknown";
         String ipv6Local = "0:0:0:0:0:0:0:1";
         String ipv4Local = "127.0.0.1";
-    	if (request == null) {
-    	    return unknown;
+        if (request == null) {
+            return unknown;
         }
         String ip = request.getHeader("x-forwarded-for");
         if (StringUtils.isEmpty(ip) || unknown.equalsIgnoreCase(ip)) {

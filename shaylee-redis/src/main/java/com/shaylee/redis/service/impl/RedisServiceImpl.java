@@ -24,22 +24,22 @@ public class RedisServiceImpl implements CacheService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
-    public void set(String key, Object value, long expire){
+    public void set(String key, Object value, long expire) {
         redisTemplate.opsForValue().set(key, value);
-        if(expire != CacheConstant.NOT_EXPIRE){
+        if (expire != CacheConstant.NOT_EXPIRE) {
             expire(key, expire);
         }
     }
 
     @Override
-    public void set(String key, Object value){
+    public void set(String key, Object value) {
         set(key, value, CacheConstant.DEFAULT_EXPIRE);
     }
 
     @Override
     public Object get(String key, long expire) {
         Object value = redisTemplate.opsForValue().get(key);
-        if(expire != CacheConstant.NOT_EXPIRE){
+        if (expire != CacheConstant.NOT_EXPIRE) {
             expire(key, expire);
         }
         return value;
@@ -66,21 +66,21 @@ public class RedisServiceImpl implements CacheService {
     }
 
     @Override
-    public Map<String, Object> hGetAll(String key){
+    public Map<String, Object> hGetAll(String key) {
         HashOperations<String, String, Object> hashOperations = redisTemplate.opsForHash();
         return hashOperations.entries(key);
     }
 
     @Override
-    public void hMSet(String key, Map<String, Object> map){
+    public void hMSet(String key, Map<String, Object> map) {
         hMSet(key, map, CacheConstant.DEFAULT_EXPIRE);
     }
 
     @Override
-    public void hMSet(String key, Map<String, Object> map, long expire){
+    public void hMSet(String key, Map<String, Object> map, long expire) {
         redisTemplate.opsForHash().putAll(key, map);
 
-        if(expire != CacheConstant.NOT_EXPIRE){
+        if (expire != CacheConstant.NOT_EXPIRE) {
             expire(key, expire);
         }
     }
@@ -94,37 +94,37 @@ public class RedisServiceImpl implements CacheService {
     public void hSet(String key, String field, Object value, long expire) {
         redisTemplate.opsForHash().put(key, field, value);
 
-        if(expire != CacheConstant.NOT_EXPIRE){
+        if (expire != CacheConstant.NOT_EXPIRE) {
             expire(key, expire);
         }
     }
 
     @Override
-    public void expire(String key, long expire){
+    public void expire(String key, long expire) {
         redisTemplate.expire(key, expire, TimeUnit.SECONDS);
     }
 
     @Override
-    public void hDel(String key, Object... fields){
+    public void hDel(String key, Object... fields) {
         redisTemplate.opsForHash().delete(key, fields);
     }
 
     @Override
-    public void leftPush(String key, Object value){
+    public void leftPush(String key, Object value) {
         leftPush(key, value, CacheConstant.DEFAULT_EXPIRE);
     }
 
     @Override
-    public void leftPush(String key, Object value, long expire){
+    public void leftPush(String key, Object value, long expire) {
         redisTemplate.opsForList().leftPush(key, value);
 
-        if(expire != CacheConstant.NOT_EXPIRE){
+        if (expire != CacheConstant.NOT_EXPIRE) {
             expire(key, expire);
         }
     }
 
     @Override
-    public Object rightPop(String key){
+    public Object rightPop(String key) {
         return redisTemplate.opsForList().rightPop(key);
     }
 }

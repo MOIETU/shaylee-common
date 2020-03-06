@@ -102,7 +102,7 @@ public class MemberSecurity extends BaseEntity {
      * 最后登录系统
      */
     private String lastLoginOs;
-    
+
     /**
      * 最后登录系统类型
      */
