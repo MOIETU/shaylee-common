@@ -43,7 +43,7 @@
         <guava.version>20.0</guava.version>
         <lombok.version>1.18.4</lombok.version>
         <commons.lang.version>3.7</commons.lang.version>
-        <commons-io.version>2.5</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <jackson.version>2.10.2</jackson.version>
         <junit.version>4.12</junit.version>
         <mapper.version>2.1.5</mapper.version>
